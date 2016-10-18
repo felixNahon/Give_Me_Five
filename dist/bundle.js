@@ -44,31 +44,62 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
-	var _logger = __webpack_require__(1);
+	var _Liste_eleve = __webpack_require__(1);
 
-	var _logger2 = _interopRequireDefault(_logger);
+	var _Liste_eleve2 = _interopRequireDefault(_Liste_eleve);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	document.write('Welcome give me five.');
-	(0, _logger2.default)(); // yes
-	console.log('app loaded');
+	var eleves = [];
+	function init(nom, prenom) {
+		eleves = [new _Liste_eleve2.default("Gastineau", "Julien"), new _Liste_eleve2.default("Nahon", "Felix"), new _Liste_eleve2.default("Dussol", "Clement"), new _Liste_eleve2.default("Teboul", "Clement")];
+		var $eleve = $('#listeEleve'),
+		    $one = $eleve.children('li').detach();
+
+		for (var j = 0; j < eleves.length; j++) {
+			var $li = $one.clone(),
+			    eleve = eleves[j];
+			$li.find(".eleveNom").html(eleves.nom + " " + eleves.prenom);
+
+			eleve.id = j;
+
+			$li.attr('title', eleves.name);
+			$('#listeEleve').append($li);
+			console.log(eleves[j]);
+		}
+	}
+	init();
 
 /***/ },
 /* 1 */
 /***/ function(module, exports) {
 
-	'use strict';
+	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
 
-	exports.default = function () {
-		console.log('logger.js is RUNNING!!');
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var Liste_eleve =
+
+	/**
+	 * [constructor description]
+	 * @param  {[type]} nom    [nom de l eleve]
+	 * @param  {[type]} prenom [prenom de l eleve]
+	 * @return {[type]}        [description]
+	 */
+	function Liste_eleve(nom, prenom) {
+		_classCallCheck(this, Liste_eleve);
+
+		this.nom = nom;
+		this.prenom = prenom;
 	};
+
+	exports.default = Liste_eleve;
 
 /***/ }
 /******/ ]);

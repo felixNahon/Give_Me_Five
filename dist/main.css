@@ -1,0 +1,17 @@
+body{
+	padding: 0; 
+	margin:0;
+}
+
+.red{
+	background-color: #f00; 
+}
+
+.zone-eleve li img{
+	width: 50px;
+	height:50px;
+}
+
+.zone-eleve li{
+	list-style:none;
+}
