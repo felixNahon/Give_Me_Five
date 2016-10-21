@@ -81,10 +81,17 @@
 			var li = $one.clone();
 			li.find('.nomEleve').html(eleve.nom + " " + eleve.prenom);
 			li.find('.points').html('Points :' + eleve.stats.getScore());
-			li.find("#listeEleve").html('<input type="text" placeholder="prenom" id="prenom"');
 
 			$eleve.append(li);
 			li.attr('title', eleve.nom + " " + eleve.prenom);
+		});
+
+		$('.btnEditEleve').on('click', function () {
+
+			var recup_parent = $(this).parent();
+			var nom = recup_parent.find(".nomEleve").text();
+			$('.zone-eleve#listeEleve').find(".nomEleve").text();
+			console.log(nom);
 		});
 	}
 	init();
