@@ -53,34 +53,57 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var eleves = [];
+
 	function init(nom, prenom) {
 		eleves = [new _Liste_eleve2.default("Gastineau", "Julien"), new _Liste_eleve2.default("Nahon", "Felix"), new _Liste_eleve2.default("Dussol", "Clement"), new _Liste_eleve2.default("Teboul", "Clement")];
 		var $eleve = $('#listeEleve'),
 		    $one = $eleve.children('li').detach();
 
 		for (var j = 0; j < eleves.length; j++) {
-			var $li = $one.clone(),
+			var li = $one.clone(),
 			    eleve = eleves[j];
-			$li.find(".eleveNom").html(eleves.nom + " " + eleves.prenom);
-
 			eleve.id = j;
+			li.find('.nomEleve').html(eleve.nom + " " + eleve.prenom);
+			li.find('.points').html('Points :' + eleve.stats.getScore());
 
-			$li.attr('title', eleves.name);
-			$('#listeEleve').append($li);
-			console.log(eleves[j]);
+			$eleve.append(li);
+			li.attr('title', eleve.nom + " " + eleve.prenom);
 		}
+
+		$('.btnAjoutEleve').on('click', function () {
+
+			var nom_val = $('#nom').val();
+			var prenom_val = $('#prenom').val();
+			var eleve = new _Liste_eleve2.default(nom_val, prenom_val);
+
+			var $eleve = $('#listeEleve');
+
+			var li = $one.clone();
+			li.find('.nomEleve').html(eleve.nom + " " + eleve.prenom);
+			li.find('.points').html('Points :' + eleve.stats.getScore());
+			li.find("#listeEleve").html('<input type="text" placeholder="prenom" id="prenom"');
+
+			$eleve.append(li);
+			li.attr('title', eleve.nom + " " + eleve.prenom);
+		});
 	}
 	init();
 
 /***/ },
 /* 1 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
+
+	var _stats = __webpack_require__(2);
+
+	var _stats2 = _interopRequireDefault(_stats);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -97,9 +120,49 @@
 
 		this.nom = nom;
 		this.prenom = prenom;
+		this.stats = new _stats2.default();
 	};
 
 	exports.default = Liste_eleve;
+
+/***/ },
+/* 2 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var Stats = function () {
+		function Stats() {
+			_classCallCheck(this, Stats);
+
+			this.presence = 0;
+			this.participation = 0;
+			this.passageTableau = 0;
+		}
+
+		_createClass(Stats, [{
+			key: "getScore",
+			value: function getScore() {
+				var score = 0;
+				for (var stats in this) {
+					score += this[stats];
+				}
+				return score;
+			}
+		}]);
+
+		return Stats;
+	}();
+
+	exports.default = Stats;
 
 /***/ }
 /******/ ]);

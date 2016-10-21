@@ -1,17 +1,67 @@
 body{
 	padding: 0; 
 	margin:0;
+
 }
 
-.red{
-	background-color: #f00; 
+#container_body{
+	background-color:#53ADFC;
+}
+.nav{	
+	position: center;
+	
 }
 
-.zone-eleve li img{
-	width: 50px;
-	height:50px;
+#listeEleve li{
+	background-image:url(images/profil.jpg); 
+	background-size: cover;
+ 	display: inline-block;
+ 	width: 100px;
+ 	height: 100px;
+ 	padding: 50px;
 }
 
-.zone-eleve li{
+ 
+.zone-eleve li:{
+	display:inline-block;
 	list-style:none;
+	color:#F32545;
+}
+
+#nom{
+	color:black;
+}
+#prenom{
+	color:black;
+
+}
+
+.btnAjoutEleve{
+	position: fixed; 
+	top:7.5%;
+	left:35%;
+}
+
+.btnModifierEleve{
+	top:23%;
+	left:3.5%;
+	visibility: hidden;
+
+}
+
+
+#nom{
+	position:fixed;
+	top:12%;
+	left:35%;
+}
+
+#prenom{
+	position:fixed;
+	top:15%;
+	left:35%;
+}
+
+#listeEleve li:hover .btnModifierEleve{
+		visibility: show; 
 }

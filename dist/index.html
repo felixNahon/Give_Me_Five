@@ -1,32 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Give-me-five</title>
-	<link rel="stylesheet" href="main.css">
-	<link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <title>Give-me-five</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
 </head>
-<body>
+<body id="container_body">
   
 <nav class=" red navbar navbar-default>
         <div class="navbar-header">
           <a class="navbar-brand" href="#">Give Me Five !</a>
         </div>
     </nav>
-
     <div id="container">
-    	<div class="zone-eleve col-md-6">
-    	<ul id="listeEleve">
-    		<li class="eleveNom"><img src="images/profil.jpg" class="img-circle" alt="icone de profil"></li>	
+        <div class="zone-eleve col-md-4">
+        <ul id="listeEleve">
+            <li class="eleveNom">
+                <p class="nomEleve"></p>
+                <p class="points"></p>
 
-    	</ul>
-    	    	
-    	<div class="zone-image col-md-6">
-    	</div>
-    	
+            </li>     
+        </ul>        
     </div>
-	<script src="jquery-3.1.1.js"></script>
 
-	<script src="bundle.js"></script>
+    <form action="#" method="post">
+        <input type="text" id="nom" placeholder="nom">
+        <input type="text" id="prenom" placeholder="prenom">
+        <input type="button" class="btnAjoutEleve btn btn-primary" value="ajouter eleve">
+        <input type="button" class="btnModifierEleve btn btn-secondary" value="Modifier eleve">
+    </form>
+
+    <script src="jquery-3.1.1.js"></script>
+    <script src="bundle.js"></script>
 </body> 
 </html>
